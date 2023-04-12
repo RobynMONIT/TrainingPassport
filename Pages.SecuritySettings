@@ -1,0 +1,148 @@
+{
+	"page": [
+	{
+		"page": "*.js",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.css",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.bmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.jpg",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.jpeg",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.gif",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.ico",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.png",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.a5image",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.woff",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.ttf",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "*.svg",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "login.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "masterTabbedUI.a5wcmp",
+		"action": "login",
+		"groups": "4989924c0bc94881b3d5a9611b97bcf9,ADMINISTRATOR,bf6f7c8996654b2c91b6efc00b03b288,COMPANY,3c1c70eb766c419798ae6f1531bd6642,SITE,5976506c52ae411f914654f68a91c661,WORKER"
+	},
+	{
+		"page": "TabbedUI_masterTabbedUI.a5w",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "two_factor_authentication_preferences.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "extended_user_information.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "reset_password.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "Admin_MaintainUsersAndGroups.a5wcmp",
+		"action": "login",
+		"groups": "4989924c0bc94881b3d5a9611b97bcf9,ADMINISTRATOR"
+	},
+	{
+		"page": "insufficientPermission.a5w",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "Company_EditWorkers.a5wcmp",
+		"action": "login",
+		"groups": "bf6f7c8996654b2c91b6efc00b03b288,COMPANY,4989924c0bc94881b3d5a9611b97bcf9,ADMINISTRATOR"
+	},
+	{
+		"page": "Manage_Sites.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "Manage_Users.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "Manage_Companies.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "shopping.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "test_splitview.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "Dashboard.a5w",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "index.a5w",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "login.a5w",
+		"action": "allow",
+		"groups": ""
+	}]
+}
