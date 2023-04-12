@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%a5 
+dim session.CurrUserName as c ' this will be set after a login
+dim session.CurrIdUser as c ' this will be set after login
+%>
+<%a5
+
+'The componentAlias MUST be UNIQUE for each component on the page. It must not have spaces in the name. Keep name as short as possible
+dim componentAlias as c 
+componentAlias = "LOGIN"
+Delete tmpl_LOGIN
+DIM tmpl_LOGIN as P
+tmpl_LOGIN = a5w_load_component("login") 'SYSTEM GENERATED COMMENT - PLEASE DO NOT REMOVE (LOAD:login)
+'Following code allows you to override settings in the saved component, and specify the component alias (componentName property).
+'Tip: Keep the componentName property short because this name is used in page URLs, and it will help keep the URLs short.
+'Each component on a page must have a unique alias (componentName property).
+with tmpl_LOGIN
+	componentName = "LOGIN"
+end with 
+'=======================================compute the HTML for the Component=======================================
+delete x_LOGIN
+dim x_LOGIN as p
+x_LOGIN = a5w_run_Component(tmpl_LOGIN)  'SYSTEM GENERATED COMMENT - PLEASE DO NOT REMOVE (RUN:tmpl_LOGIN) (EDIT:login)
+'=============================================================================================================
+if x_LOGIN.RedirectURL <> "" then 
+	'-------- before redirect, find current user just logged in and save there name in the session variable
+	CurrUser = a5ws_getcurrentuser() ' current user was set in login process
+	if CurrUser = "" ' no one logged in
+		session.CurrUserName = ""
+	else
+		dim cn as sql::Connection
+		dim args as sql::Arguments
+		args.set("UserName",Curruser)
+		if cn.open("::name::contactmanager")
+			if cn.Execute("SELECT (FirstName + (' ' + LastName)) AS FullName, id FROM RegisteredUsers WHERE UserName = :UserName",args)
+				if cn.ResultSet.nextRow() ' at least one row found
+					session.CurrUserName = cn.ResultSet.data("FullName")
+					session.CurrIdUser = convert_type(cn.ResultSet.data("ID"),"C") ' convert to character
+				end if 
+			end if 
+		end if 
+	end if
+	'-------- the user session variable has been set, so the page can redirect
+	'-------- redirect with JavaScript to 'break out' of iframe.  'welcome.a5w' runs in iframe
+	?"<script language=\"JavaScript\" type=\"text/javascript\">window.top.location='index.a5w'</script>"
+	'--- do not use component redirect
+'	response.redirect(x_LOGIN.redirectURL)
+	end
+end if 
+?remove_blank_lines(x_LOGIN.Output.Head.JavaScript)
+?remove_blank_lines(x_LOGIN.Output.Head.CSS_Link)
+%>
+
+<%a5
+Delete tmpl_REGISTER
+DIM tmpl_REGISTER as P
+tmpl_REGISTER = a5w_load_component("register") ''SYSTEM GENERATED COMMENT - PLEASE DO NOT REMOVE (LOAD:register)
+
+'Override settings start -----------------------------------------
+with tmpl_REGISTER
+.alias = "REGISTER"
+_dialogFilename = "register"
+end with 
+'Override settings end -----------------------------------------
+
+delete x_REGISTER
+dim x_REGISTER as p
+x_REGISTER = a5w_run_Component(tmpl_REGISTER) 'SYSTEM GENERATED COMMENT - PLEASE DO NOT REMOVE (RUN:tmpl) (EDIT:register)
+
+?remove_blank_lines(x_REGISTER.Output.Head.JavaScript)
+?remove_blank_lines(x_REGISTER.Output.Head.CSS_Link)
+%>
+
+<meta name="generator" content="Alpha Five HTML Editor Version 11 Build 2245-3829">
+<!-- must use in order to make XP Themes render -->
+<meta HTTP-EQUIV="MSThemeCompatible" content="Yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<title>Welcome</title>
+</head>
+<%a5 ?x_LOGIN.Output.Body.Body_Tag %>
+<!--Alpha Five Temporary Code Start - Will be automatically removed when page is published -->
+<!--Body Tag for tmpl_LOGIN -->
+<body class="GrGrayPage">
+<!--Alpha Five Temporary Code End -->
+
+<div style="padding-left:50px;" >
+<%a5 if session.CurrUserName = "" %>
+<table>
+  <tr>
+    <td><h2>Please Log into System</h2></td>
+  </tr>
+  <tr>
+    <td><%A5 ?x_LOGIN.Output.Body.Login_Errors %></td>
+  </tr>
+  <tr>
+    <td><%A5 ?x_LOGIN.Output.Body.Login_HTML %></td>
+  </tr>
+  <tr>
+    <td><%a5 ?remove_blank_lines(x_REGISTER.Output.Body.Dialog2_HTML) %></td>
+  </tr>
+</table>
+<%a5 else %>
+<h2>Welcome: <%a5 ?session.CurrUserName %></h2>
+<span style="font-size:large;"><a href="logout.a5w" >Logout</a></span>
+<%a5 end if %>
+</div>
+
+</body></html>
