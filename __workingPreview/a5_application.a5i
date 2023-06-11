@@ -14,7 +14,7 @@
 
 Dim _aliases_ as c
 _aliases_ = <<%txt%
-[PathAlias.ADB_Path]|C:\Users\tigge\Local-Documents\Alpha Training Passport\Training Passport
+[PathAlias.ADB_Path]|C:\Users\tigge\Local-Documents\Alpha Projects\Training Passport
 %txt%
 
 'Creates a global collection called '_A5_Aliases' 
@@ -314,7 +314,7 @@ DIM federatedAuthentication.connectionString as C
 DIM federatedAuthentication.tableName as C
 DIM federatedAuthentication.fieldmap as C
 DIM pdfReferenceDevice as C
-DIM __token as C = "2ca2bdb1383a4104b5c6b86bb167429f"
+DIM __token as C = "b27d83a030144848b215816364f056a5"
 %txt%
 
 dim gv as p 
@@ -325,10 +325,10 @@ dim gv.__buildNumberExe__ as n
 dim gv.__buildNumberAddins__ as n 
 dim gv.__guid as c 
 dim gv.__A5PublishVersion as n 
-gv.__A5PublishTimestamp = 2023525212115245347
+gv.__A5PublishTimestamp = 2023282802102834343
 gv.__buildNumberExe__ = 8565
 gv.__buildNumberAddins__ = 5671
-gv.__guid = "4457e1d5-5f83-4247-a347-3dd519bdf435"
+gv.__guid = "de9cbe3d-6c01-4d60-836f-a34c4f3d7890"
 gv.__control = <<%txtcontrol%
 hV7+2zUTjP0=
 %txtcontrol%

@@ -101,11 +101,6 @@
 		"groups": ""
 	},
 	{
-		"page": "Company_EditWorkers.a5wcmp",
-		"action": "login",
-		"groups": "bf6f7c8996654b2c91b6efc00b03b288,COMPANY,4989924c0bc94881b3d5a9611b97bcf9,ADMINISTRATOR"
-	},
-	{
 		"page": "Manage_Sites.a5wcmp",
 		"action": "allow",
 		"groups": ""
@@ -142,6 +137,16 @@
 	},
 	{
 		"page": "login.a5w",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "Manage_Workers.a5wcmp",
+		"action": "allow",
+		"groups": ""
+	},
+	{
+		"page": "test_Formview.a5wcmp",
 		"action": "allow",
 		"groups": ""
 	}]
